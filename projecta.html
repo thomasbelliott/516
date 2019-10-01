@@ -1,0 +1,22 @@
+<html>
+<script>
+
+let max = 100;
+let min = 1;
+let response = "";
+answer = Math.ceil((max-min)/2);
+
+while (response != "yes"){
+  response = prompt(`Is your number ${answer}?`);
+  if (response == "<"){
+  max = answer
+  answer = Math.floor(min + ((max-min)/2))
+  }else if (response == ">"){
+  min = answer
+  answer = Math.ceil(min + ((max-min)/2))
+  }
+}
+alert("I win!");
+
+</script>
+</html>
