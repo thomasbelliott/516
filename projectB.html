@@ -1,0 +1,67 @@
+<html>
+<script>
+
+"use strict";
+
+let shift = parseInt(prompt ("Shift by how many? Please enter a positive or negative integer."));
+while (Number.isNaN(shift)){
+ 	shift = parseInt(prompt ("Shift by how many? Please enter a positive or negative integer."));
+}
+  
+let text = prompt ("Please enter source text");
+
+const encrypt = function(text,shift){
+  let encrypted = "";
+  let position = 0;
+  
+  while (position < text.length) {
+    let code = text.charCodeAt(position);
+  
+    const encrypt2 = function(code, low, high){  
+  	  if ((code + shift) >= low && (code + shift) <= high){
+      	let code2 = code + shift;
+      	encrypted+= String.fromCharCode(code2);
+  		position++;
+      }//NO WRAP
+  	  else if ((code + shift) > high) {
+     	let code2 = (code+shift%26);    
+        if (code2 > high){
+          code2 = (code2-high)+(low-1);
+    	}
+   		encrypted+= String.fromCharCode(code2);
+  		position++;
+	  }//HIGH-WRAP
+        
+  	  else if ((code + shift) < low){
+ 		let code2 = (code+shift%26);
+        if (code2 < low){
+          code2 = (high+1)-(low-code2);
+        }
+      	encrypted+= String.fromCharCode(code2);
+  		position++;
+   	  }//LOW-WRAP
+    }
+    
+  if (code >= 97 && code <= 122){
+    let low = 97;
+    let high = 122;
+    encrypt2(code, low, high);
+  }//LOWER CASE
+  
+  else if (code >= 65 && code <= 90){
+    let low = 65;
+    let high = 90;
+    encrypt2(code, low, high);
+  }//UPPER CASE
+  
+  else {
+    encrypted+= String.fromCharCode(code);
+    position++;
+  }//NON-LETTER CHARACTERS  
+}
+return encrypted;
+}
+alert(encrypt(text,shift));
+
+</script>
+<html>
