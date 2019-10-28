@@ -30,7 +30,7 @@ const sentences = {
         "Some people say my clothes are ____ of style.",
         "You should get ____ of the house, the weather is nice!"]
 }
-let scoreKeeping = {in: 0, on: 0, from: 0, off: 0, out: 0}
+let scoreKeeping = {in: 0, on: 0, from: 0, off: 0, out: 0};
 let lowPrep = "in";
 
 while(true){
@@ -38,8 +38,8 @@ while(true){
     if (scoreKeeping[key] < scoreKeeping[lowPrep]){
       lowPrep = key;
     }
-    let randomItem = (Math.floor(Math.random()*(sentences[lowPrep].length)))
-    let blankFiller = prompt(sentences[lowPrep][randomItem])
+    let randomItem = Math.floor(Math.random()*(sentences[lowPrep].length));
+    let blankFiller = prompt(sentences[lowPrep][randomItem]);
     if (blankFiller == lowPrep) {
       alert("Correct!");
       scoreKeeping[lowPrep]++);
