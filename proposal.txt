@@ -1,0 +1,18 @@
+Tom Elliott
+English 516
+Final Project Proposal
+11-7-19
+
+        For my final project, I plan to address some challenges I faced while working on my master’s thesis last year.  The project was an analysis of the use of noun + noun sequences in student writing, using the Michigan Corpus of Upper-level Student Papers (MICUSP).  The goal was to understand how the use of noun + noun sequences varies based on academic discipline.  The web interface provided for the corpus was very helpful, but somewhat limited, so I used AntConc along with the original text files from the corpus.  This involved a considerable amount of sometimes tedious work to clean, organize, and analyze the data.  I hope to develop a program to make future projects less time-intensive.  Using plain text files of the essays in the corpus which I acquired last year, the program will (hopefully) complete the following steps:
+
+
+Preparing the texts:
+* Remove References/Works Cited from files to focus only on student writing, especially as source titles often contain many noun sequences, which can skew results.
+* Remove direct quotes to limit results to student-produced sequences.
+* Provide word counts for each text to enable accurate normalization for feature frequencies.
+
+
+Analyzing the texts:
+* Find instances of noun-noun sequences by searching the tagged texts using regular expressions.
+* Create an object containing a list of the noun sequences found, indicating the paper ID number in which each sequence was found.
+* Using that information, find normalized frequencies of noun-noun sequences for each paper and sub-discipline (indicated by the paper ID numbers).
