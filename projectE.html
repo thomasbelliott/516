@@ -1,0 +1,53 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+//alert("Please enter your text in the box marked 'Input'")
+
+// this function will be invoked when the button is clicked
+function process() {
+  
+  // get input text, put it in the variable "x"
+  let x = document.getElementById("input").value;
+ 
+  let cleaned = x.replace(/[^\s\w]/gi, "").replace(/\s{2,}/g, " ").toUpperCase();
+  let tokens = cleaned.split(" ");    
+
+  function countTokens (array){    
+    let object = {};
+    for(let t of array){
+      if (t in object){
+        object[t]++;
+      }
+      else{
+        object[t] = 1;
+      }
+    }
+    return object;
+  }
+    
+  let typesFreq = countTokens(tokens);    
+
+  let types = Object.keys(typesFreq).sort(DescFreq);
+
+  function DescFreq (a,b) {
+    if (typesFreq[a] === typesFreq[b]) return 1;
+    else return typesFreq[b]-typesFreq[a];
+  }
+  
+  let freqDict = "";
+  for(i=0; i < types.length; i++){
+    freqDict += types[i] + ": " + typesFreq[types[i]] + "\n";
+  }
+
+  let typeTokenRatio = (types.length/tokens.length).toFixed(2);
+
+  let output = "Type-token ratio: " + typeTokenRatio + "\n" + "Frequency Dictionary:\n" + freqDict;
+
+  // populate the output text box with the value of the variable "y"
+  document.getElementById("output").value = output;
+}
+
+</script>
