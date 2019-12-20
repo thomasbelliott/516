@@ -2,9 +2,9 @@ Hello, and welcome to my corpus analysis program!
 
 This program is designed to extract noun + noun sequences from text files tagged using the CLAWS part-of-speech tagger (Constituent Likelihood Automatic Word-tagging System, http://ucrel.lancs.ac.uk/claws/). 
 
-In the same folder as  file-getter.js you must have a subfolder called corpus_files, where you should place the files to be analyzed.  It should also contain a folder called 'cleaned' where some of the output files will be saved.
+In the same folder as  finalProj.js you must have a subfolder called corpus_files, where you should place the files to be analyzed.  It should also contain a folder called 'cleaned' where some of the output files will be saved.
 
-After placing the tagged text files in the corpus_files folder, open file-getter.js from your command line interface.  This will require first installing the node.js JavaScript runtime (https://nodejs.org/en/).
+After placing the tagged text files in the corpus_files folder, open finalProj.js from your command line interface.  This will require first installing the node.js JavaScript runtime (https://nodejs.org/en/).
 
 After running the program a cleaned (words only) version of each file will be written to the 'cleaned' folder.  Two CSV files will be written to the 'Final' folder, one compiling the Noun+Noun sequences found from all texts sorted by frequency, and another with the results separated by file name.  In the folder called 'KWIC_lines' a CSV file will be produced for each corpus file, showing Noun+Noun sequences highlighted in all caps inside the sentences in which they originally appeared.
 
